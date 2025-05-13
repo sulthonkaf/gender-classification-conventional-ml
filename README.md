@@ -62,3 +62,35 @@ def plot_conf_matrix(model_name, y_true, y_pred):
     cm = confusion_matrix(y_true, y_pred)
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
     ...
+
+🧪 Manual Testing Example
+
+Testing the model with a single, unseen input:
+
+sample = [[1, 13.0, 5.8, 0, 0, 1, 0]]
+
+Predicted consistently as Male by all models.
+
+Note: To avoid feature name warnings, convert input to a DataFrame:
+
+sample = pd.DataFrame([[1, 13.0, 5.8, 0, 0, 1, 0]], columns=X.columns)
+
+📌 Dependencies
+
+scikit-learn
+numpy
+pandas
+matplotlib
+seaborn
+
+You can run this notebook using Jupyter or Google Colab.
+
+📌 Author
+
+Sulthon KafComputer Science Student | Machine Learning Enthusiast
+
+🌟 Acknowledgement
+
+This project was developed as part of a university assignment to apply binary/multiclass classification using conventional ML techniques.
+
+
