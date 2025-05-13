@@ -1,3 +1,4 @@
+
 # Gender Classification using Conventional Machine Learning
 
 This project demonstrates a simple machine learning pipeline to classify gender based on facial features using **conventional ML algorithms** such as:
@@ -58,39 +59,64 @@ Each model is trained using `train_test_split`, and performance is evaluated wit
 Visual representation of true vs predicted labels to understand classification performance.
 
 ```python
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 def plot_conf_matrix(model_name, y_true, y_pred):
     cm = confusion_matrix(y_true, y_pred)
+    plt.figure(figsize=(4,3))
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-    ...
+    plt.title(f'Confusion Matrix - {model_name}')
+    plt.xlabel('Predicted')
+    plt.ylabel('Actual')
+    plt.show()
+```
 
-🧪 Manual Testing Example
+---
+
+## 🧪 Manual Testing Example
 
 Testing the model with a single, unseen input:
 
+```python
 sample = [[1, 13.0, 5.8, 0, 0, 1, 0]]
+```
 
-Predicted consistently as Male by all models.
+Predicted consistently as **Male** by all models.
 
-Note: To avoid feature name warnings, convert input to a DataFrame:
+> 🟡 Note: You might get a warning like `UserWarning: X does not have valid feature names...`. To fix this:
 
+```python
+import pandas as pd
 sample = pd.DataFrame([[1, 13.0, 5.8, 0, 0, 1, 0]], columns=X.columns)
+sample_scaled = scaler.transform(sample)
+model.predict(sample_scaled)
+```
 
-📌 Dependencies
+---
 
+## 📎 Dependencies
+
+```bash
 scikit-learn
 numpy
 pandas
 matplotlib
 seaborn
+```
 
-You can run this notebook using Jupyter or Google Colab.
+> You can run this notebook using Jupyter or Google Colab.
 
-📌 Author
+---
 
-Sulthon KafComputer Science Student | Machine Learning Enthusiast
+## 📌 Author
 
-🌟 Acknowledgement
+**Sulthon Kaf**  
+_Computer Science Student | Machine Learning Enthusiast_
+
+---
+
+## 🌟 Acknowledgement
 
 This project was developed as part of a university assignment to apply binary/multiclass classification using conventional ML techniques.
-
-
